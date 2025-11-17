@@ -5,5 +5,4 @@ gunicorn
 img2pdf
 pytz
 google-api-python-client
-
-
+google-auth
