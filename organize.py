@@ -34,6 +34,17 @@ FOLDER_IDS = {
     "📗 الثاني الثانوي": "1ZkNFSh678ipZ0p3l5GjCeA-Otu6JDSA3",
     "📕 الثالث الثانوي": "1Mfb9Akrm4Ss1qoPax-bWVPYCC8lW0JQl",
 }
+import os
+import json
+import base64
+import gspread
+
+b64 = os.getenv("GOOGLE_CREDENTIALS_BASE64")
+json_str = base64.b64decode(b64).decode("utf-8")
+creds = json.loads(json_str)
+
+gc = gspread.service_account_from_dict(creds)
+
 
 SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -183,3 +194,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
